@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css">
+    <script src="https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js"></script>
+</head>
+<body>
+<div id="map" style="width: 100%; height: 730px;"></div>
+</body>
+<script>
+    // 创建地图视图
+    var map = new ol.Map({
+        target: 'map',
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.XYZ({
+                    url: "http://t0.tianditu.com/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk=076f75f61b8070d8b40fa10f55eed3e8",
+                    wrapX: false,
+                    visible: true
+                })
+            })
+        ],
+        view: new ol.View({
+            center: ol.proj.fromLonLat([0, 0]), // 根据实际GeoJSON数据中的坐标调整
+            zoom: 2
+        })
+    });
+
+    // 从GeoJSON文件中加载数据
+    var vectorLayer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+            url: './cytp.json', // 你的GeoJSON文件路径
+            format: new ol.format.GeoJSON()
+        }),
+        style: new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: 'rgba(48, 44, 61, 255)'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#ffffff',
+                width: 0.1
+            })
+        })
+    });
+    var ChinaLayer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+            url: './China.json', // 你的GeoJSON文件路径
+            format: new ol.format.GeoJSON()
+        }),
+        style: new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: 'rgba(147, 36, 36, 255)'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#ffffff',
+                width: 1
+            })
+        })
+    });
+    // 将矢量图层添加到地图上
+    map.addLayer(vectorLayer);
+    map.addLayer(ChinaLayer);
+
+    // 创建一个overlay来显示信息
+    var infoOverlay = new ol.Overlay({
+        element: document.createElement('div'),
+        positioning: 'bottom-center',
+        offset: [0, -10]
+    });
+    map.addOverlay(infoOverlay);
+
+    // 监听地图的指针移动事件
+    map.on('pointermove', function(e) {
+        if (e.dragging) return;
+
+        var pixel = map.getEventPixel(e.originalEvent);
+        var hit = map.hasFeatureAtPixel(pixel);
+        map.getTargetElement().style.cursor = hit ? 'pointer' : '';
+
+        infoOverlay.getElement().innerHTML = ''; // 清空现有内容
+        map.forEachFeatureAtPixel(pixel, function(feature) {
+            var properties = feature.getProperties();
+            var infoContent = `国家: ${properties.full_name}`;
+            infoOverlay.getElement().innerHTML = `<div style="background: white; padding: 5px;">${infoContent}</div>`;
+            infoOverlay.setPosition(e.coordinate);
+        });
+    });
+</script>
+
+</html>
