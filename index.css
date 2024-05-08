@@ -1,0 +1,136 @@
+/* styles.css */
+
+body {
+    height: 100vh; /* 设置body的高度为视口的高度 */
+    width: 100vw; /* 设置body的宽度为视口的宽度 */
+    margin: 0; /* 可以去除默认的外边距 */
+    padding: 0; /* 可以去除默认的内边距 */
+  }
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Top Navigation */
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+    height: 10%;
+    display: grid;
+    place-items: center;
+}
+
+.topnav h {
+    font-size: 30px;
+    color: #f2f2f2;
+}
+
+/* Image List Section */
+.image-list {
+    float: left;
+    width: 35%;
+    padding: 0px;
+    height: 100%;
+}
+
+/* Map Section */
+.map {
+    float: right;
+    width: 65%;
+    padding: 0px;
+    height: 100%;
+}
+
+/* Clearfix */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.content  {
+    height: 85%;
+}
+
+ /* 设置列表样式 */
+ .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
+    grid-gap: 10px;
+    float: left;
+    width: 35%;
+    padding: 0px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* 设置列表项样式 */
+.grid-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+/* 设置图片样式 */
+.grid-item img {
+    max-width: 100%;
+    max-height: 100px;
+}
+
+ /* grid 容器样式 */
+ .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
+    grid-gap: 10px;
+    float: left;
+    width: 35%;
+    padding: 0px;
+    height: 100%;
+    overflow-y: auto;
+    position: relative; /* 确保相对定位 */
+}
+
+/* 简单的介绍页面样式 */
+.intro-page {
+    position: absolute;
+    left: -100%; /* 初始位置在左侧 */
+    width: 35%; /* 与 grid 容器相同的宽度 */
+    height: 90%;
+    background-color: rgba(0, 0, 0, 0.8); /* 半透明黑色背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: left 1s ease; /* 添加过渡效果 */
+    bottom: 0px;
+}
+
+.intro-content {
+    font-family: "Arial Narrow";
+    text-align: center;
+    color: white;
+}
+
+.intro-content img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.intro-content p {
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+
+.image-title {
+    width: 100%;
+    padding: 20px 0 20px 0;
+}
+.return-btn {
+    height: 40px;
+    width: 60px;
+    font-size: 15px;
+}
