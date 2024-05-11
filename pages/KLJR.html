@@ -31,12 +31,12 @@
     // 从GeoJSON文件中加载数据
     var vectorLayer = new ol.layer.Vector({
         source: new ol.source.Vector({
-            url: './cytp.json', // 你的GeoJSON文件路径
+            url: './jsonsrc/KLJR.json', // 你的GeoJSON文件路径
             format: new ol.format.GeoJSON()
         }),
         style: new ol.style.Style({
             fill: new ol.style.Fill({
-                color: 'rgba(48, 44, 61, 255)'
+                color: 'rgba(234, 196, 12, 255)'
             }),
             stroke: new ol.style.Stroke({
                 color: '#ffffff',

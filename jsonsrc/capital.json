@@ -1,0 +1,271 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.4074,
+          39.9042
+        ]
+      },
+      "properties": {
+        "Country": "China",
+        "Capital": "Beijing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978,
+          37.5665
+        ]
+      },
+      "properties": {
+        "Country": "South Korea",
+        "Capital": "Seoul"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7275,
+          37.9838
+        ]
+      },
+      "properties": {
+        "Country": "Greece",
+        "Capital": "Athens"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6176,
+          55.7558
+        ]
+      },
+      "properties": {
+        "Country": "Russia",
+        "Capital": "Moscow"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.559,
+          53.9006
+        ]
+      },
+      "properties": {
+        "Country": "Belarus",
+        "Capital": "Minsk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4491,
+          51.1694
+        ]
+      },
+      "properties": {
+        "Country": "Kazakhstan",
+        "Capital": "Astana"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.5234,
+          50.4501
+        ]
+      },
+      "properties": {
+        "Country": "Ukraine",
+        "Capital": "Kyiv"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.8612,
+          6.9271
+        ]
+      },
+      "properties": {
+        "Country": "Sri Lanka",
+        "Capital": "Colombo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.0402,
+          47.4979
+        ]
+      },
+      "properties": {
+        "Country": "Hungary",
+        "Capital": "Budapest"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          105.8542,
+          21.0285
+        ]
+      },
+      "properties": {
+        "Country": "Vietnam",
+        "Capital": "Hanoi"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.4991,
+          40.1792
+        ]
+      },
+      "properties": {
+        "Country": "Armenia",
+        "Capital": "Yerevan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          90.4125,
+          23.8103
+        ]
+      },
+      "properties": {
+        "Country": "Bangladesh",
+        "Capital": "Dhaka"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.8638,
+          47.0105
+        ]
+      },
+      "properties": {
+        "Country": "Moldova",
+        "Capital": "CHISINAU"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3219,
+          42.6977
+        ]
+      },
+      "properties": {
+        "Country": "Bulgaria",
+        "Capital": "Sofia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8597,
+          39.9334
+        ]
+      },
+      "properties": {
+        "Country": "Turkey",
+        "Capital": "Ankara"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.2797,
+          54.6872
+        ]
+      },
+      "properties": {
+        "Country": "Lithuania",
+        "Capital": "Vilnius"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3522,
+          48.8566
+        ]
+      },
+      "properties": {
+        "Country": "France",
+        "Capital": "Paris"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.1278,
+          51.5074
+        ]
+      },
+      "properties": {
+        "Country": "United Kingdom",
+        "Capital": "London"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8198,
+          1.3521
+        ]
+      },
+      "properties": {
+        "Country": "Singapore",
+        "Capital": "Singapore"
+      }
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>MapVGL</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map_container {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+    </style>
+
+    <script src="//api.map.baidu.com/api?v=1.0&type=webgl&ak=DLWm40m6Ko1nVJ9Es3qQRwn8zorGK0si"></script>
+    <script src="https://mapv.baidu.com/gl/examples/static/common.js"></script>
+    <script src="//mapv.baidu.com/build/mapv.min.js"></script>
+    <script src="https://code.bdstatic.com/npm/mapvgl@1.0.0-beta.189/dist/mapvgl.min.js"></script>
+
+</head>
+<body>
+<div id="map_container"></div>
+<script>
+    var map = initMap({
+        tilt: 49.6,
+        heading: 0,
+        center: [70.,38],
+        zoom: 6,
+        style: whiteStyle,
+        skyColors: [
+            // 地面颜色
+            'rgba(13, 35, 59, 0)',
+            // 天空颜色
+            'rgba(4, 0, 0, 1)'
+        ]
+    });
+
+    var view = new mapvgl.View({
+        map: map
+    });
+
+    var data1=[];
+    //var data2=[];
+    fetch('../jsonsrc/ArtMuseum.json')
+        .then((response) => response.json())
+        .then((json) => {
+            // 假设json是一个对象数组，每个对象都有geometry和properties属性
+            data1 = json.features; // 将加载的数据的features属性赋值给data变量
+            console.log('data1', data1);
+            // 创建点图层
+            var pointLayer = new mapvgl.PolygonLayer({
+                // blend: 'lighter',
+                data: data1, // 使用加载的数据
+                size: 20 ,// 根据您的数据，这里可能需要调整
+                fillColor: 'rgba(13, 35, 59, 0.5)', // 根据您的数据，这里可能需要调整
+                fillOpacity:'1.0',
+                lineJoin: 'round',
+            });
+
+            view.addLayer(pointLayer);
+            // pointLayer.setData(data); // 这一行不再是必需的，因为我们在创建点图层时已经提供了数据
+        })
+        .catch((error) => {
+            console.error('Error loading JSON:', error);
+        });
+
+    /*fetch('../jsonsrc/capital.json').then(rs => {
+        return rs.json();
+    }).then(geojson => {
+         data2 = geojson.features.map(feature => ({
+            geometry: {
+                type: 'Point',
+                coordinates: feature.geometry.coordinates
+            },
+            properties: feature.properties
+        }));
+        console.log('data2',data2)
+        var wallLayer = new mapvgl.WallLayer({
+            gradient: {
+                0: 'rgba(204, 153, 255, 0.5)',
+                1: 'rgba(0, 0, 204, 0.2)'
+            },
+            height: 1000
+        });
+        view.addLayer(wallLayer);
+
+        var wallTripLayer = new mapvgl.WallTripLayer({
+            trailLength: 8.0,
+            step: 0.4,
+            color: 'rgba(255, 0, 102, 0.5)',
+            height: 1000
+        });
+
+        view.addLayer(wallTripLayer);
+
+        wallLayer.setData(data2);
+        wallTripLayer.setData(data2);
+    });*/
+    fetch('../jsonsrc/capital.json')
+        .then(response => response.json())
+        .then(json => {
+            // 假设我们将点连接为一条线，按照数组顺序
+            var coordinates = json.features.map(feature => feature.geometry.coordinates);
+            var data2 = [{
+                geometry: {
+                    type: 'LineString',
+                    coordinates: coordinates
+                }
+            }];
+
+            console.log('data', data2);
+
+            // 创建图层
+            var layer = new mapvgl.WallLayer({
+                gradient: {
+                    0: 'rgba(204, 153, 255, 0.8)',
+                    1: 'rgba(0, 0, 204, 0.5)'
+                },
+                height: 100000
+            });
+            var layer2 = new mapvgl.WallTripLayer({
+                trailLength: 8000,
+                step: 50,
+                color: 'rgba(18, 10, 232, 0.5)',
+                height: 100000
+            });
+
+            // 将图层添加到视图
+            view.addLayer(layer);
+            view.addLayer(layer2);
+
+            // 设置图层数据
+            layer.setData(data2);
+            layer2.setData(data2);
+        })
+        .catch(error => {
+            console.error('Error loading JSON:', error);
+        });
+
+</script>
+</body>
+</html>

@@ -5,6 +5,7 @@ var map = new ol.Map({
         new ol.layer.Tile({
             source: new ol.source.XYZ({
                 url: 'https://t0.tianditu.gov.cn/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk=076f75f61b8070d8b40fa10f55eed3e8'
+                //url:'http://wprd0{1-4}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&style=7&x={x}&y={y}&z={z}'
             })
         })
     ],
