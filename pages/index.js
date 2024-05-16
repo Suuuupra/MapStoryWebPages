@@ -10,8 +10,8 @@ var map = new ol.Map({
         })
     ],
     view: new ol.View({
-        center: ol.proj.fromLonLat([106.1554, 35.8617]),
-        zoom: 10
+        center: ol.proj.fromLonLat([66.1554, 35.8617]),
+        zoom: 3
     })
 });
 
@@ -36,7 +36,7 @@ const points = [
 
 const cameraStyle = new ol.style.Style({
     image: new ol.style.Icon({
-      src: './img/icon.png',
+      src: '../img/icon.png',
       imgsize: [1, 1],
       anchor: [0.5, 0.5],
     })
